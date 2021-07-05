@@ -3,14 +3,24 @@
   background-color: #cbe7bf;
 }
 .mItem {
-  display: grid;
-  place-items: center;
-  height: 30px;
-  margin-bottom: 5px;
+  height: 5vh;
+  margin-bottom: 1vh;
   clear: both;
   float: left;
   background-color: #cbe7bf;
-  border-radius: 15px;
+  border-radius: 4vw;
+  display: grid;
+  place-items: center;
+}
+.mItem li {
+  padding: 10px;
+  width: auto;
+  overflow: hidden;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
 }
 .menuList {
   margin-top: 5px;
