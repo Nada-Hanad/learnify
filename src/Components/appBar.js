@@ -101,7 +101,7 @@ export default function ButtonAppBar({ menuItems }) {
                                 {" "}
                                 <div className="mItem">
                                   <MenuItem onClick={handleClose}>
-                                    {item}
+                                    <h5>{item}</h5>
                                   </MenuItem>
                                 </div>
                               </FadeIn>
