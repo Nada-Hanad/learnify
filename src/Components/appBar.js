@@ -5,7 +5,6 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuList from "@material-ui/core/MenuList";
-import MenuItem from "@material-ui/core/MenuItem";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
@@ -115,7 +114,7 @@ export default function ButtonAppBar({ menuItems }) {
               )}
             </Popper>
             <Typography variant="h6" className={classes.title}>
-              Learnify
+              <div className="title">Learnify</div>
             </Typography>
           </Toolbar>
         </nav>
