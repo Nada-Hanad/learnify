@@ -1,23 +1,20 @@
+import { Description } from "@material-ui/icons";
 import "./App.css";
+import ButtonAppBar from "./Components/appBar";
+import { useState } from "react";
 
 function App() {
+  const [menu, setmenu] = useState([
+    "Acceuil",
+    "Description du jeu",
+    "Lien et guide d'installation",
+    "Comment jouer?",
+    "A propos",
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h1>NGHIKUM RBKM</h1>
-        <h2>Learning patience brk</h2>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ButtonAppBar menuItems={menu}></ButtonAppBar>
     </div>
   );
 }
