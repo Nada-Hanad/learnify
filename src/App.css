@@ -3,6 +3,8 @@
   background-color: #cbe7bf;
 }
 .mItem {
+  display: grid;
+  place-items: center;
   height: 30px;
   margin-bottom: 5px;
   clear: both;
