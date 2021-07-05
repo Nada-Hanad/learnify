@@ -1,17 +1,15 @@
 import "./App.css";
 import ButtonAppBar from "./Components/appBar";
-import { useState } from "react";
 import sc from "./assets/sc.png";
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Acceuil from "./acceuil";
+import Description from "./description.js";
+import installation from "./installation";
+import How from "./how";
+import Apropos from "./apropos";
 
 function App() {
-  const [menu, setmenu] = useState([
-    "Acceuil",
-    "Description du jeu",
-    "Lien et guide d'installation",
-    "Comment jouer?",
-    "A propos",
-  ]);
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -36,33 +34,37 @@ function App() {
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
-  React.useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
-    }
-
-    prevOpen.current = open;
-  }, [open]);
 
   return (
-    <div className="App">
-      <ButtonAppBar
-        prevOpen={prevOpen}
-        handleClose={handleClose}
-        handleListKeyDown={handleListKeyDown}
-        handleToggle={handleToggle}
-        menuItems={menu}
-        anchorRef={anchorRef}
-        open={open}
-        setOpen={setOpen}
-      ></ButtonAppBar>
-      <div className="content">
-        <div className="Container">
-          {/* <div className="content-image"></div> */}
-          <img src={sc} alt="Not found" />
-        </div>
-      </div>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <div className="App">
+            <ButtonAppBar
+              prevOpen={prevOpen}
+              handleClose={handleClose}
+              handleListKeyDown={handleListKeyDown}
+              handleToggle={handleToggle}
+              anchorRef={anchorRef}
+              open={open}
+              setOpen={setOpen}
+            ></ButtonAppBar>
+            <div className="content">
+              <div className="Container">
+                {/* <div className="content-image"></div> */}
+                <img src={sc} alt="Not found" />
+              </div>
+            </div>
+          </div>
+        </Route>
+        <Route path="/acceuil" component={Acceuil} />
+        <Route path="/description" component={Description} />
+        <Route path="/installation" component={installation} />
+        <Route path="/comment-jouer" component={How} />
+        <Route path="/a-propos" component={Apropos} />
+        /installation Description
+      </Switch>
+    </Router>
   );
 }
 

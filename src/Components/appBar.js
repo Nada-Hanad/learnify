@@ -3,14 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import MenuList from "@material-ui/core/MenuList";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
 import FadeIn from "react-fade-in";
-import SvgIcon from "@material-ui/core/SvgIcon";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,14 +24,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ButtonAppBar({
-  menuItems,
-  prevOpen,
   handleClose,
   handleListKeyDown,
   handleToggle,
   anchorRef,
   open,
-  setOpen,
+  hide,
 }) {
   const classes = useStyles();
 
@@ -87,18 +84,51 @@ export default function ButtonAppBar({
                           id="menu-list-grow"
                           onKeyDown={handleListKeyDown}
                         >
-                          {menuItems.map((item) => {
-                            return (
-                              <FadeIn>
-                                {" "}
-                                <div className="mItem">
-                                  <li onClick={handleClose}>
-                                    <h5>{item}</h5>
-                                  </li>
-                                </div>
-                              </FadeIn>
-                            );
-                          })}
+                          <FadeIn>
+                            {" "}
+                            <div className="mItem">
+                              <li onClick={handleClose}>
+                                <Link to="/acceuil">Acceuil</Link>
+                              </li>
+                            </div>
+                          </FadeIn>
+                          <FadeIn>
+                            {" "}
+                            <div className="mItem">
+                              <li onClick={handleClose}>
+                                <Link to="/description">
+                                  Description du jeu
+                                </Link>
+                              </li>
+                            </div>
+                          </FadeIn>
+                          <FadeIn>
+                            {" "}
+                            <div className="mItem">
+                              <li onClick={handleClose}>
+                                <Link to="/installation">
+                                  {" "}
+                                  Lien et guide d'installation
+                                </Link>
+                              </li>
+                            </div>
+                          </FadeIn>
+                          <FadeIn>
+                            {" "}
+                            <div className="mItem">
+                              <li onClick={handleClose}>
+                                <Link to="/comment-jouer">Comment jouer?</Link>
+                              </li>
+                            </div>
+                          </FadeIn>
+                          <FadeIn>
+                            {" "}
+                            <div className="mItem">
+                              <li onClick={handleClose}>
+                                <Link to="/a-propos">A propos</Link>
+                              </li>
+                            </div>
+                          </FadeIn>
                         </MenuList>
                       </div>
                     </ClickAwayListener>
